@@ -25,8 +25,6 @@ jobs:
 
     - name: Create release keystore
       run: keytool -genkeypair -v -keystore release.jks -keyalg RSA -keysize 2048 -validity 10000
-        //echo "${{ secrets.RELEASE_KEYSTORE }}" > release.keystore.asc
-        //gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch release.keystore.asc > release.jks\
           
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
