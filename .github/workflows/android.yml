@@ -23,6 +23,11 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
+    - name: Create release keystore
+      run: |
+        echo "${{ secrets.RELEASE_KEYSTORE }}" > release.keystore.asc
+        gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch release.keystore.asc > release.jks\
+          
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
