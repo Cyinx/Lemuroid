@@ -24,7 +24,7 @@ jobs:
         cache: gradle
 
     - name: Create release keystore
-      run: keytool -genkeypair -v -keystore release.jks -keyalg RSA -keysize 2048 -validity 10000
+      run: keytool -genkeypair -alias your_alias -keyalg RSA -keysize 2048 -validity 10000 -keystore release.jks -storepass aaaaaa -keypass aaaaaaa -dname "CN=Your Name, OU=Your Unit, O=Your Org, L=Your City, S=Your State, C=Your Country"
           
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
